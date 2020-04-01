@@ -1,0 +1,20 @@
+import csv
+
+with open ('SRX3400.csv', 'r') as csv_file:
+	csv_reader = csv.reader(csv_file)
+
+	next(csv_reader)
+
+	with open ('new_names.csv', 'w') as new_file:
+		csv_writer = csv.writer(new_file)
+
+
+		for line in csv_reader:
+			csv.writer.writerow()
+			print(line[2], line[3], line[11])
+
+
+
+
+	for line in csv_reader:
+		print(line)
