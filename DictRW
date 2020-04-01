@@ -1,0 +1,25 @@
+import csv
+
+
+with open('SRX3400.csv', 'r') as f:
+	new_srx3400 = csv.DictReader(f)
+
+	with open('new_pa.csv', 'w') as new_file:
+		fieldnames = ['ï»¿from-zone-name', 'to-zone-name', 'source-address', 'destination-address', 'application','name','count']
+		csv_writer = csv.DictWriter(new_file, fieldnames=fieldnames)
+
+		csv_writer.writeheader()
+
+		for line in new_srx3400:
+			del line['ipsec-vpn'], line['session-init'], line['pair-policy'], line['deny'], line['session-close']
+			csv_writer.writerow(line)
+
+
+
+	# for line in new_srx3400:
+	# 	print(line)
+
+
+
+
+ 
